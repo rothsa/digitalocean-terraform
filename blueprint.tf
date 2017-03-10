@@ -1,5 +1,5 @@
 resource "digitalocean_droplet" "blueprint" {
-    image = "ubuntu-16-04-x64"
+    image = ""
     name = "blueprint"
     region = "nyc3"
     size = "2Gb"
