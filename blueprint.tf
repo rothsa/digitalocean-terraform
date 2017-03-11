@@ -2,11 +2,8 @@ resource "digitalocean_droplet" "blueprint" {
     image = ""
     name = "blueprint"
     region = "nyc3"
-    size = "2Gb"
-    private_networking = true
-    ssh_keys = [
-      "${var.ssh_fingerprint}"
-    ]
+    size = "2gb"
+    resize_disk = "false"
 
   connection {
       user = "root"

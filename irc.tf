@@ -2,11 +2,9 @@ resource "digitalocean_droplet" "irc" {
     image = ""
     name = "irc"
     region = "sfo1"
-    size = "512Mb"
-    private_networking = true
-    ssh_keys = [
-      "${var.ssh_fingerprint}"
-    ]
+    size = "512mb"
+    ipv6 = "true"
+    resize_disk = "false"
 
   connection {
       user = "root"

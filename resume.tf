@@ -2,11 +2,8 @@ resource "digitalocean_droplet" "resume" {
     image = ""
     name = "resume"
     region = "nyc3"
-    size = "512Mb"
-    private_networking = true
-    ssh_keys = [
-      "${var.ssh_fingerprint}"
-    ]
+    size = "512mb"
+    resize_disk = "false"
 
   connection {
       user = "root"
