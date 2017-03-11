@@ -1,6 +1,7 @@
-resource "digitalocean_droplet" "sysdig" {
+resource "digitalocean_droplet" "salt" {
     image = "ubuntu-16-04-x64"
-    name = "sysdig"
+    name = "salt"
+    count = "5"
     region = "nyc3"
     size = "2gb"
     resize_disk = "false"
