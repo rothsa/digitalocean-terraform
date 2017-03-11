@@ -1,6 +1,7 @@
 resource "digitalocean_droplet" "sysdig" {
     image = "ubuntu-16-04-x64"
     name = "sysdig"
+    count = "2"
     region = "nyc3"
     size = "2gb"
     resize_disk = "false"
