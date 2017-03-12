@@ -1,11 +1,11 @@
 resource "digitalocean_droplet" "combine" {
     image = "ubuntu-16-04-x64"
     name = "combine"
-    count = "5"
+    count = "1"
     region = "nyc3"
     size = "2gb"
     resize_disk = "false"
-    ssh_keys = [7133536]
+    ssh_keys = ["${digitalocean_ssh_key.salt_key.id}"]
 
   connection {
       user = "root"

@@ -1,10 +1,9 @@
-resource "digitalocean_droplet" "blueprint-server" {
+resource "digitalocean_droplet" "blueprint" {
     image = ""
-    name = "blueprint-server"
+    name = "blueprint"
     region = "nyc3"
     size = "2gb"
     resize_disk = "false"
-    ssh_keys = ["${digitalocean_ssh_key.salt_key.id}"]
 
   connection {
       user = "root"
