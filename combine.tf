@@ -20,7 +20,7 @@ resource "digitalocean_droplet" "combine" {
       # install salt-master
       "curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com",
       "sudo sh bootstrap-salt.sh git develop",
-      "${file(var.salt_master)} >> /etc/salt/minion;service salt-minion restart"
+      "${var.salt_master} >> /etc/salt/minion;service salt-minion restart"
     ]
   }
 }
