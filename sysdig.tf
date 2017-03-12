@@ -19,6 +19,7 @@ resource "digitalocean_droplet" "sysdig" {
     # install salt-master
       "curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com",
       "sudo sh bootstrap-salt.sh git develop",
+      "curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sudo bash",
     ]
   }
 }
