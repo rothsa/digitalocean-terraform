@@ -1,9 +1,10 @@
-resource "digitalocean_droplet" "resume" {
-    image = ""
-    name = "resume"
+resource "digitalocean_droplet" "sysdig" {
+    image = "ubuntu-16-04-x64"
+    name = "sysdig"
     region = "nyc3"
-    size = "512mb"
+    size = "2gb"
     resize_disk = "false"
+    ssh_keys = ["${digitalocean_ssh_key.salt_key.id}"]
 
   connection {
       user = "root"

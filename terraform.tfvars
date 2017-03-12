@@ -1,6 +1,4 @@
-ssh_fingerprint = "${FINGERPRINT}"
-do_token = "${DO_RW}"
-pub_key = "$HOME/.ssh/id_rsa.pub"
-pvt_key = "$HOME/.ssh/id_rsa"
+public_key_path = "/Users/rothsa/.ssh/salt_rsa.pub" 
+private_key_path = "/Users/rothsa/.ssh/salt_rsa"
 
 

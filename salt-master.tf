@@ -1,10 +1,11 @@
-resource "digitalocean_droplet" "resume" {
-    image = ""
-    name = "resume"
+resource "digitalocean_droplet" "salt-master" {
+    image = "ubuntu-16-04-x64"
+    name = "salt-master"
     region = "nyc3"
-    size = "512mb"
+    size = "2gb"
     resize_disk = "false"
-
+    ssh_keys = ["${digitalocean_ssh_key.salt_key.id}"]
+  
   connection {
       user = "root"
       type = "ssh"
@@ -15,9 +16,9 @@ resource "digitalocean_droplet" "resume" {
   provisioner "remote-exec" {
     inline = [
       "export PATH=$PATH:/usr/bin",
-    # install salt-master
+      # install salt-master 
       "curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com",
-      "sudo sh bootstrap-salt.sh git develop",
+      "sudo sh bootstrap-salt.sh -M -N git develop",
     ]
   }
 }
