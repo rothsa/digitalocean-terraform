@@ -1,7 +1,7 @@
 resource "digitalocean_droplet" "combine" {
     image = "ubuntu-16-04-x64"
     name = "combine"
-    count = "1"
+    count = "2"
     region = "nyc3"
     size = "2gb"
     resize_disk = "false"
