@@ -4,7 +4,7 @@ resource "digitalocean_droplet" "sysdig" {
     region = "nyc3"
     size = "2gb"
     resize_disk = "false"
-    ssh_keys = [7133536]
+    ssh_keys = ["${digitalocean_ssh_key.salt_key.id}"]
 
   connection {
       user = "root"

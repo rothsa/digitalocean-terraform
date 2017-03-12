@@ -4,6 +4,7 @@ resource "digitalocean_droplet" "blueprint-server" {
     region = "nyc3"
     size = "2gb"
     resize_disk = "false"
+    ssh_keys = ["${digitalocean_ssh_key.salt_key.id}"]
 
   connection {
       user = "root"
