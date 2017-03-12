@@ -1,11 +1,9 @@
-resource "digitalocean_droplet" "salt" {
-    image = "ubuntu-16-04-x64"
-    name = "salt"
-    count = "5"
+resource "digitalocean_droplet" "blueprint-server" {
+    image = ""
+    name = "blueprint-server"
     region = "nyc3"
     size = "2gb"
     resize_disk = "false"
-    ssh_keys = [7133536]
 
   connection {
       user = "root"
