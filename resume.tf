@@ -17,7 +17,7 @@ resource "digitalocean_droplet" "resume" {
       "export PATH=$PATH:/usr/bin",
     # install salt-master
       "curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com",
-      "sudo sh bootstrap-salt.sh git stable",
+      "sudo sh bootstrap-salt.sh git develop",
     ]
   }
 }
