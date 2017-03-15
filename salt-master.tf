@@ -19,6 +19,8 @@ resource "digitalocean_droplet" "salt-master" {
       # install salt-master 
       "curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com",
       "sudo sh bootstrap-salt.sh -M -N git develop",
+      "sudo apt install python-pip",
+      "sudo pip install yamllint",
     ]
   }
 }
