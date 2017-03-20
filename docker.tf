@@ -1,7 +1,6 @@
-resource "digitalocean_droplet" "combine" {
+resource "digitalocean_droplet" "docker" {
     image = "ubuntu-16-04-x64"
-    name = "combine-${count.index}"
-    count = "2"
+    name = "docker"
     region = "nyc3"
     size = "2gb"
     resize_disk = "false"
@@ -10,17 +9,22 @@ resource "digitalocean_droplet" "combine" {
   connection {
       user = "root"
       type = "ssh"
-      key_file = "${file(var.private_key_path)}"
+      private_key = "${file(var.private_key_path)}"
       timeout = "2m"
   }
 
   provisioner "remote-exec" {
     inline = [
       "export PATH=$PATH:/usr/bin",
-      # install salt-master
+    # install salt-master
       "curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com",
       "sudo sh bootstrap-salt.sh git develop",
-      "echo \"master: ${var.salt_master}\" >> /etc/salt/minion;service salt-minion restart"
+      "echo \"master: ${var.salt_master}\" >> /etc/salt/minion;service salt-minion restart",
     ]
+  }
+  
+  provisioner "file" {
+    source      = "docker.sh"
+    destination = "/tmp/docker.sh"
   }
 }
