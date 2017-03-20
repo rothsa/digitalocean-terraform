@@ -20,6 +20,8 @@ resource "digitalocean_droplet" "docker" {
       "curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com",
       "sudo sh bootstrap-salt.sh git develop",
       "echo \"master: ${var.salt_master}\" >> /etc/salt/minion;service salt-minion restart",
+      "chmod +x /tmp/docker.sh",
+      "/tmp/docker.sh",
     ]
   }
   
