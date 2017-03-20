@@ -20,10 +20,7 @@ resource "digitalocean_droplet" "ansible" {
       "curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com",
       "sudo sh bootstrap-salt.sh git develop",
       "echo \"master: ${var.salt_master}\" >> /etc/salt/minion;service salt-minion restart",
-      "sudo apt-get install software-properties-common",
-      "sudo apt-add-repository ppa:ansible/ansible",
-      "sudo apt-get update",
-      "sudo apt-get install ansible"
+      "sudo apt-get -y install ansible"
     ]
   }
 }
