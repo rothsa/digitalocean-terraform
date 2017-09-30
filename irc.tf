@@ -9,7 +9,7 @@ resource "digitalocean_droplet" "irc" {
   connection {
       user = "root"
       type = "ssh"
-      private_key = "${files(var.private_key_path)}"
+      private_key = "${file(var.private_key_path)}"
       timeout = "2m"
   }
 
