@@ -3,7 +3,7 @@ resource "digitalocean_droplet" "resume" {
     name = "resume"
     region = "nyc3"
     size = "512mb"
-    resize_disk = "false"
+    resize_disk = ""
 
   connection {
       user = "root"

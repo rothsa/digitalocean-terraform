@@ -1,10 +1,9 @@
-resource "digitalocean_droplet" "irc" {
-    image = ""
-    name = "irc"
-    region = "sfo1"
-    size = "512mb"
-    ipv6 = "true"
-    resize_disk = ""
+resource "digitalocean_droplet" "chef" {
+    image = "ubuntu-16-04-x64"
+    name = "chef"
+    region = "nyc3"
+    size = "2Gb"
+    resize_disk = "false"
 
   connection {
       user = "root"
@@ -16,9 +15,9 @@ resource "digitalocean_droplet" "irc" {
   provisioner "remote-exec" {
     inline = [
       "export PATH=$PATH:/usr/bin",
-      # install salt-master
+    # install salt-master
       "curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com",
-      "sudo sh bootstrap-salt.sh git develop",    
+      "sudo sh bootstrap-salt.sh git develop",
     ]
   }
 }

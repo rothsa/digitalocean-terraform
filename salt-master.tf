@@ -1,10 +1,10 @@
 resource "digitalocean_droplet" "salt-master" {
-    image = "ubuntu-16-04-x64"
+    image = ""
     name = "salt-master"
     region = "nyc3"
     size = "2gb"
     resize_disk = "false"
-    ssh_keys = ["${digitalocean_ssh_key.salt_key.id}"]
+    ssh_keys = ["${digitalocean_ssh_key.do_key.id}"]
   
   connection {
       user = "root"
