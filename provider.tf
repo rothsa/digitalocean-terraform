@@ -5,5 +5,5 @@ variable "ssh_fingerprint" {}
 variable "salt_master" {}
 
 provider "digitalocean" {
-  token = "${var.do_token}"
+  token = "var.do_token"
 }

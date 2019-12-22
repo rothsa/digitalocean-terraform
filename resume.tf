@@ -1,5 +1,5 @@
 resource "digitalocean_droplet" "resume" {
-    image = ""
+    image = "ubuntu-14-04-x64"
     name = "resume"
     region = "nyc3"
     size = "512mb"
@@ -7,8 +7,9 @@ resource "digitalocean_droplet" "resume" {
 
   connection {
       user = "root"
+      host = "digitalocean_droplet.salt_master"
       type = "ssh"
-      private_key = "${file(var.private_key_path)}"
+      private_key = "file(var.private_key_path)"
       timeout = "2m"
   }
 

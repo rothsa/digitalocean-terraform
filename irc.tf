@@ -1,5 +1,5 @@
 resource "digitalocean_droplet" "irc" {
-    image = ""
+    image = "ubuntu-16-04-x64"
     name = "irc"
     region = "sfo1"
     size = "512mb"
@@ -8,8 +8,9 @@ resource "digitalocean_droplet" "irc" {
 
   connection {
       user = "root"
+      host = "digitalocean_droplet.salt_master"
       type = "ssh"
-      private_key = "${files(var.private_key_path)}"
+      private_key = "files(var.private_key_path)"
       timeout = "2m"
   }
 
